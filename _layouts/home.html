@@ -1,80 +1,69 @@
 ---
 layout: default
 ---
-<section class="it-hero-wrapper" aria-label="In evidenza">
-   <div class="img-responsive-wrapper">
-      <div class="img-responsive">
-         <div class="img-wrapper"><img src="https://terrasolida.it/wp-content/uploads/2022/08/parco-villadolt-fontanafredda-1.jpg" title="" alt="Uffici"></div>
-      </div>
-   </div>
-</section>
-<br>
 
-<div class="container">
-<div class="alert alert-danger" role="alert">
-  La realtà di Arena Giovani è sospes fino al 10 ottobre 2025
-   <a href="https://agfo.fvg.it/FOIA/accessocivico/sospensione-del-progetto/"> Leggi in merito </a>
-</div>
 
-   <br>
+<section class="container py-12 md:py-20">
+  <a href="{{ page.url }}">
+    <article class="article-card group">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
 
-<!-- _includes/blog-section.html -->
-<section class="it-section py-5 bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center mb-4">
-        <h2 class="h2">Ultimi articoli dal blog</h2>
-        <p class="lead">Approfondimenti, novità e storie dal nostro team</p>
-      </div>
-    </div>
-    <div class="row">
-      {% for post in site.posts limit:3 %}
-      <div class="col-12 col-md-4 mb-4">
-        <div class="card-wrapper h-100">
-          <div class="card card-bg card-big">
-            {% if post.image %}
-            <div class="card-image-wrapper">
-              <img src="{{ post.image }}" alt="{{ post.title }}" class="card-image blog-thumb">
-            </div>
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-              </h5>
-              <p class="card-text">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-              <span class="text-muted small">{{ post.date | date: "%d %B %Y" }}</span>
-            </div>
-            <div class="card-footer">
-              <a href="{{ post.url | relative_url }}" class="read-more">Leggi di più</a>
-            </div>
+        <!-- Testo -->
+        <div class="order-2 md:order-1 space-y-4">
+          <span class="category-tag">{{ page.category }}</span>
+
+          <h1 class="headline-xl group-hover:text-accent transition-colors">
+            {{ page.title }}
+          </h1>
+
+          <p class="body-text text-lg">
+            {{ page.excerpt }}
+          </p>
+
+          <div class="flex items-center gap-4 pt-2">
+            <time class="text-sm text-subtitle uppercase tracking-wide">
+              {{ page.date | date: "%-d %B %Y" }}
+            </time>
+            <span class="text-subtitle">·</span>
+            <span class="text-sm text-subtitle">
+              {{ page.read_time }} min lettura
+            </span>
           </div>
+
+          <span class="inline-block mt-4 border-2 border-primary text-primary px-6 py-3 text-sm font-semibold uppercase tracking-wide group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+            Leggi l'articolo
+          </span>
         </div>
+
+        <!-- Immagine -->
+        <div class="order-1 md:order-2 overflow-hidden">
+          <img
+            src="{{ page.image }}"
+            alt="{{ page.title }}"
+            class="article-image w-full h-[300px] md:h-[450px] object-cover group-hover:scale-105"
+          >
+        </div>
+
       </div>
-      {% endfor %}
-    </div>
-    <div class="row mt-4">
-      <div class="col text-center">
-        <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">Vai al blog</a>
-      </div>
-    </div>
-  </div>
+    </article>
+  </a>
 </section>
 
-<!-- stile custom per le immagini -->
-<style>
-  .blog-thumb {
-    width: 100%;
-    height: 200px; /* altezza fissa */
-    object-fit: cover; /* mantiene proporzioni e ritaglia */
-    border-radius: .25rem;
-  }
-</style>
+<section class="container py-16"><div class="grid lg:grid-cols-2 gap-0 bg-card overflow-hidden"><div class="relative h-[300px] lg:h-auto"><img src="https://videocdn.cdnpk.net/videos/49775454-13d9-5506-96ce-c1a32843b154/horizontal/thumbnails/large.jpg?semt=ais_hybrid&item_id=6220650&w=740&q=80" alt="Intervista esclusiva" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent lg:bg-gradient-to-r"></div><div class="absolute bottom-6 left-6 lg:hidden"><span class="category-tag bg-accent text-accent-foreground px-2 py-1">Programma</span></div></div><div class="p-8 lg:p-12 flex flex-col justify-center"><span class="category-tag hidden lg:block">Epoch Today Podcast</span><h2 class="headline-lg mt-2 lg:mt-4">Ogni giorno un video</h2><p class="body-text mt-4">Ogni mattina alle 07:00 approfondisco temi che fanno parte della nostra vita quotidiana, osservandoli da diverse prospettive e collegandoli al contesto storico e geografico. Un appuntamento per capire meglio ciò che ci circonda, attraverso uno sguardo che unisce attualità, storia e territorio.</p><div class="flex items-center gap-4 mt-6"><div><p class="font-semibold text-headline">Gabriel Jones</p><p class="text-sm text-muted-foreground">Scoprimi</p></div></div><div class="flex items-center gap-4 mt-6 pt-6 border-t border-divider"><time class="text-sm text-subtitle uppercase tracking-wide">10 Dicembre 2025</time><span class="text-subtitle">·</span><span class="text-sm text-subtitle">Youtube - Spotify</span></div><button class="mt-6 bg-accent text-accent-foreground px-6 py-3 text-sm font-semibold uppercase tracking-wide hover:bg-accent/90 transition-colors w-fit">Vai al programma</button></div></div></section>
 
-   
-   
-   
-   
-   
-   {{ content }}
 
-</div>
+<section class="bg-primary text-primary-foreground py-16 relative overflow-hidden"><div class="absolute top-4 left-4 opacity-10 font-headline text-[150px] leading-none">"</div><div class="container relative"><div class="max-w-3xl mx-auto text-center"><blockquote class="font-headline text-2xl md:text-3xl lg:text-4xl font-medium italic leading-relaxed mb-6">"Per me il giornalismo non è solo un lavoro: è il bisogno di dare voce alle storie che possono cambiare il modo in cui guardiamo il mondo"</blockquote><cite class="text-primary-foreground/70 text-sm uppercase tracking-widest not-italic">— Gabriel Jones</cite></div></div></section>
+
+
+<section class="container py-16"><h2 class="font-headline text-2xl md:text-3xl font-bold text-headline mb-10 pb-4 border-b-2 border-accent inline-block">Approfondimenti</h2><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="animate-fade-in" style="animation-delay: 0ms;"><a href="/articolo/movimenti-piazza-protesta"><article class="article-card group"><div class="overflow-hidden mb-4"><img src="/assets/article-society-mwjZXwBs.jpg" alt="Movimenti di piazza: la nuova voce della protesta" class="article-image w-full h-48 object-cover group-hover:scale-105"></div><span class="category-tag">Società</span><h3 class="headline-md mt-2 group-hover:text-accent transition-colors">Movimenti di piazza: la nuova voce della protesta</h3><p class="body-text mt-2 line-clamp-3">Dalle periferie ai centri storici, come sta cambiando la mobilitazione sociale in Italia.</p><time class="text-sm text-subtitle mt-3 block uppercase tracking-wide">28 Novembre 2024</time></article></a></div><div class="animate-fade-in" style="animation-delay: 100ms;"><a href="/articolo/futuro-lavoro-smart-working"><article class="article-card group"><div class="overflow-hidden mb-4"><img src="/assets/article-economy-DEWuw2rs.jpg" alt="Il futuro del lavoro: smart working e nuove professioni" class="article-image w-full h-48 object-cover group-hover:scale-105"></div><span class="category-tag">Economia</span><h3 class="headline-md mt-2 group-hover:text-accent transition-colors">Il futuro del lavoro: smart working e nuove professioni</h3><p class="body-text mt-2 line-clamp-3">L'evoluzione del mercato del lavoro italiano tra digitalizzazione e nuove competenze richieste.</p><time class="text-sm text-subtitle mt-3 block uppercase tracking-wide">26 Novembre 2024</time></article></a></div><div class="animate-fade-in" style="animation-delay: 200ms;"><a href="/articolo/autonomia-differenziata-regioni"><article class="article-card group"><div class="overflow-hidden mb-4"><img src="/assets/article-politics-tUCy6_iu.jpg" alt="Autonomia differenziata: cosa cambia per le regioni" class="article-image w-full h-48 object-cover group-hover:scale-105"></div><span class="category-tag">Politica</span><h3 class="headline-md mt-2 group-hover:text-accent transition-colors">Autonomia differenziata: cosa cambia per le regioni</h3><p class="body-text mt-2 line-clamp-3">Un'analisi dettagliata della riforma e delle sue implicazioni per il sistema Italia.</p><time class="text-sm text-subtitle mt-3 block uppercase tracking-wide">24 Novembre 2024</time></article></a></div></div></section>
+
+
+
+<section class="bg-primary text-primary-foreground py-16"><div class="container"><div class="flex items-center justify-between mb-10"><div><span class="text-accent text-sm font-semibold uppercase tracking-widest">Video</span><h2 class="font-headline text-2xl md:text-3xl font-bold mt-2">I miei reportage video</h2></div><a href="#video" class="hidden md:flex items-center gap-2 text-sm font-medium uppercase tracking-wide hover:text-accent transition-colors">Vedi tutti i video →</a></div><div class="grid md:grid-cols-3 gap-6"><article class="group cursor-pointer"><div class="relative overflow-hidden mb-4"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&amp;h=225&amp;fit=crop" alt="Inchiesta: Il lato oscuro della fast fashion" class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"><div class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><div class="w-16 h-16 rounded-full bg-accent flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play text-accent-foreground ml-1"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div><span class="absolute bottom-3 right-3 px-2 py-1 bg-primary/80 text-xs font-medium">18:24</span></div><h3 class="font-headline text-lg font-semibold leading-tight group-hover:text-accent transition-colors">Inchiesta: Il lato oscuro della fast fashion</h3><div class="flex items-center gap-2 mt-2 text-sm text-primary-foreground/60"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg><span>124K visualizzazioni</span></div></article><article class="group cursor-pointer"><div class="relative overflow-hidden mb-4"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&amp;h=225&amp;fit=crop" alt="Reportage: 48 ore al confine orientale" class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"><div class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><div class="w-16 h-16 rounded-full bg-accent flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play text-accent-foreground ml-1"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div><span class="absolute bottom-3 right-3 px-2 py-1 bg-primary/80 text-xs font-medium">32:10</span></div><h3 class="font-headline text-lg font-semibold leading-tight group-hover:text-accent transition-colors">Reportage: 48 ore al confine orientale</h3><div class="flex items-center gap-2 mt-2 text-sm text-primary-foreground/60"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg><span>89K visualizzazioni</span></div></article><article class="group cursor-pointer"><div class="relative overflow-hidden mb-4"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&amp;h=225&amp;fit=crop" alt="Intervista esclusiva: Il ministro risponde" class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"><div class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><div class="w-16 h-16 rounded-full bg-accent flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play text-accent-foreground ml-1"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div></div><span class="absolute bottom-3 right-3 px-2 py-1 bg-primary/80 text-xs font-medium">24:55</span></div><h3 class="font-headline text-lg font-semibold leading-tight group-hover:text-accent transition-colors">Intervista esclusiva: Il ministro risponde</h3><div class="flex items-center gap-2 mt-2 text-sm text-primary-foreground/60"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg><span>156K visualizzazioni</span></div></article></div><a href="#video" class="md:hidden flex items-center justify-center gap-2 mt-8 text-sm font-medium uppercase tracking-wide hover:text-accent transition-colors">Vedi tutti i video →</a></div></section>
+
+<section class="container py-16"><div class="text-center mb-12"><span class="category-tag">Percorso</span><h2 class="font-headline text-2xl md:text-3xl font-bold text-headline mt-2">La mia storia</h2></div><div class="relative"><div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-divider hidden md:block"></div><div class="space-y-8 md:space-y-12"><div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 md:flex-row"><div class="flex-1 md:text-right"><div class="p-6 bg-secondary hover:bg-muted transition-colors"><span class="text-3xl font-headline font-bold text-accent">2024</span><h3 class="font-headline text-xl font-semibold text-headline mt-2 mb-2">Premio Ferrante Ferranti</h3><p class="text-muted-foreground">Miglior inchiesta dell'anno per il reportage sulla crisi climatica nel Mediterraneo.</p></div></div><div class="w-4 h-4 bg-accent rounded-full flex-shrink-0 relative z-10 hidden md:block"></div><div class="flex-1 hidden md:block"></div></div><div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 md:flex-row-reverse"><div class="flex-1 md:text-left"><div class="p-6 bg-secondary hover:bg-muted transition-colors"><span class="text-3xl font-headline font-bold text-accent">2023</span><h3 class="font-headline text-xl font-semibold text-headline mt-2 mb-2">Corrispondente dall'Ucraina</h3><p class="text-muted-foreground">Sei mesi di reportage dal fronte, documentando la vita dei civili durante il conflitto.</p></div></div><div class="w-4 h-4 bg-accent rounded-full flex-shrink-0 relative z-10 hidden md:block"></div><div class="flex-1 hidden md:block"></div></div><div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 md:flex-row"><div class="flex-1 md:text-right"><div class="p-6 bg-secondary hover:bg-muted transition-colors"><span class="text-3xl font-headline font-bold text-accent">2022</span><h3 class="font-headline text-xl font-semibold text-headline mt-2 mb-2">Lancio del podcast</h3><p class="text-muted-foreground">"Dietro la Notizia" raggiunge 50.000 ascoltatori nel primo anno.</p></div></div><div class="w-4 h-4 bg-accent rounded-full flex-shrink-0 relative z-10 hidden md:block"></div><div class="flex-1 hidden md:block"></div></div><div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 md:flex-row-reverse"><div class="flex-1 md:text-left"><div class="p-6 bg-secondary hover:bg-muted transition-colors"><span class="text-3xl font-headline font-bold text-accent">2020</span><h3 class="font-headline text-xl font-semibold text-headline mt-2 mb-2">Inchiesta sulla pandemia</h3><p class="text-muted-foreground">Serie di reportage sulla gestione sanitaria italiana durante l'emergenza Covid.</p></div></div><div class="w-4 h-4 bg-accent rounded-full flex-shrink-0 relative z-10 hidden md:block"></div><div class="flex-1 hidden md:block"></div></div><div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 md:flex-row"><div class="flex-1 md:text-right"><div class="p-6 bg-secondary hover:bg-muted transition-colors"><span class="text-3xl font-headline font-bold text-accent">2018</span><h3 class="font-headline text-xl font-semibold text-headline mt-2 mb-2">Premio Maria Grazia Cutuli</h3><p class="text-muted-foreground">Riconoscimento per il giornalismo internazionale e i diritti umani.</p></div></div><div class="w-4 h-4 bg-accent rounded-full flex-shrink-0 relative z-10 hidden md:block"></div><div class="flex-1 hidden md:block"></div></div><div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 md:flex-row-reverse"><div class="flex-1 md:text-left"><div class="p-6 bg-secondary hover:bg-muted transition-colors"><span class="text-3xl font-headline font-bold text-accent">2015</span><h3 class="font-headline text-xl font-semibold text-headline mt-2 mb-2">Inizio carriera freelance</h3><p class="text-muted-foreground">Dopo anni nelle redazioni, inizio il percorso come giornalista indipendente.</p></div></div><div class="w-4 h-4 bg-accent rounded-full flex-shrink-0 relative z-10 hidden md:block"></div><div class="flex-1 hidden md:block"></div></div></div></div></section>
+
+
+
+
+
