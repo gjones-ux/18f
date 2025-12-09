@@ -1,0 +1,72 @@
+---
+layout: default
+title: Gabriel Jones
+permalink: /profiles/gabrieljones/
+---
+
+<main class="flex-1 pt-16 md:pt-20">
+  <div class="container py-8">
+    <!-- Header autore e bio -->
+    <header class="max-w-3xl mx-auto text-center mb-12">
+      <div class="w-32 h-32 rounded-full bg-muted flex items-center justify-center mx-auto mb-6">
+        <span class="font-display text-5xl font-bold text-foreground">J</span>
+      </div>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-2">Gabriel Jones</h1>
+      <p class="text-lg text-accent font-medium mb-6">scrittore</p>
+      <p class="text-muted-foreground leading-relaxed max-w-xl mx-auto mb-8">
+        No info
+      </p>
+      <div class="flex items-center justify-center gap-4">
+        <a href="#" class="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter w-4 h-4">
+            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+          </svg>
+        </a>
+        <a href="#" class="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram w-4 h-4">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="mailto:info@epochtoday.it" class="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-4 h-4">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="divider-thick max-w-5xl mx-auto mb-12"></div>
+
+    <!-- Sezione Articoli di gabriel jones dinamica -->
+    <section class="max-w-5xl mx-auto">
+      <h2 class="font-display text-2xl font-bold text-foreground mb-8 text-center">Articoli di gabriel jones</h2>
+      <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
+        {% assign gabriel_posts = site.posts | where: "author", "gabriel jones" %}
+        {% for post in gabriel_posts %}
+        <article class="border-t-2 border-foreground pt-4">
+          <span class="category-tag">{{ post.category }}</span>
+          <a href="{{ post.url }}">
+            <h3 class="font-display text-xl md:text-2xl font-bold text-foreground leading-tight mt-2 mb-3 hover:text-accent transition-colors">
+              {{ post.title }}
+            </h3>
+          </a>
+          {% if post.excerpt %}
+          <p class="font-serif text-sm text-muted-foreground italic mb-3">{{ post.excerpt }}</p>
+          {% endif %}
+          {% if post.summary %}
+          <p class="text-sm text-muted-foreground line-clamp-2 mb-3">{{ post.summary }}</p>
+          {% endif %}
+          <div class="flex items-center gap-2 text-xs text-muted-foreground">
+            <span>{{ post.date | date: "%-d %B %Y" }}</span>
+            <span>•</span>
+            <span>{{ post.reading_time }} min</span>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</main>
